@@ -1,7 +1,7 @@
 #!/bin/bash
 
 today=$(date +"%m%d")
-year=$(date +"%y")
+year=$(date +"%Y")
 
 while IFS= read -r line
 do
@@ -9,8 +9,8 @@ do
 	for i in "${arr[@]}"
 	do
 		if [ "$i" == "$today" ]; then
-			age=$(expr ${arr[2]} - $year)
-			bday=$(echo ${arr[0]}"'s Birthday!!! ${arr[0]} is $year")
+			age=$(expr $year - ${arr[2]})
+			bday=$(echo ${arr[0]}"'s Birthday!!! ${arr[0]} is $age")
 			notify-send "$bday"
 		fi
 	done
